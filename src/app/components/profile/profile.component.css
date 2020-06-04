@@ -1,0 +1,59 @@
+.table {
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px #ffffff; 
+  font-family: "Gill Sans", sans-serif;
+  background: linear-gradient(to right, #0c33a6, #3060f0);
+  color: #ffffff;
+}
+
+.table td {
+  vertical-align: middle;
+  font-size: 18px;
+}
+
+td img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+} 
+
+.card {
+  float: right;
+  border: none;
+  background: none;
+}
+
+.pic {
+  margin-top: -212px; 
+  margin-left: -42px; 
+}
+
+ul {
+  margin-top: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 18px;
+}
+
+li {
+  list-style-type: none;
+  background-color: #343a40;
+  color: #ffffff;
+  border: 1px solid #17a2b8;
+  padding: 10px;
+  border-radius: 25px;
+  margin-bottom: 5px;
+}
+
+p {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 15px;
+}
+
+.spinner {
+  text-align: center;
+  color: #ffffff;
+}

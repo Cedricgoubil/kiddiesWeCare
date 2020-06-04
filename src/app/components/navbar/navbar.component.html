@@ -1,0 +1,45 @@
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark secondary-color" data-toggle="collapse"
+  data-target=".navbar-collapse.show">
+  <a class="navbar-brand ml-3" routerLink="/">
+    <div class="navbar-brand" style="font-family: Gill Sans, sans-serif; font-size: x-large;">
+      KiddiesWeCare
+    </div>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+    aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+    <ul class="navbar-nav mr-auto" style="font-family: Gill Sans, sans-serif; font-size: large;">
+      <li *ngIf="isLoggedIn" class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
+        <a class="nav-link" routerLink="/">Home
+        </a>
+      </li>
+      <li *ngIf="isLoggedIn" class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+        <a class="nav-link" routerLink="/about">Über uns</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons" style="font-family: Gill Sans, sans-serif; font-size: large;">
+      <li *ngIf="!isLoggedIn" class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+        <a class="nav-link" routerLink="/register"><i class="fas fa-user-plus"></i> Register</a>
+      </li>
+      <li *ngIf="!isLoggedIn" class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+        <a class="nav-link" routerLink="/"><i class="fas fa-sign-in-alt"></i> Login</a>
+      </li>
+      <li *ngIf="isLoggedIn && user" class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+        <a class="nav-link" routerLink="/profile/{{ user?.id }}" title="Profil"> <img src="{{ user?.image }}"
+            onError="this.src='/assets/img/avatar.png';"></a>
+      </li>
+      <li *ngIf="isLoggedIn && !user" class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+        <a class="nav-link" routerLink="/user/add" title="Profil hinzufügen"><i class="fas fa-user-plus"></i> Profil
+          hinzufügen</a>
+      </li>
+      <li *ngIf="isLoggedIn" class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+        <a class="nav-link">{{loggedInUser}}</a>
+      </li>
+      <li *ngIf="isLoggedIn" class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+        <a href="#" (click)="onLogoutClick()" class="nav-link"><i class="fas fa-sign-in-alt"></i> Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>

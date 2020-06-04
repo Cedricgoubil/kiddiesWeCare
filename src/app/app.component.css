@@ -1,0 +1,30 @@
+#welcomeSplash {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 120px;
+  background: linear-gradient(to right, #3060f0, #0c33a6);
+  color: #ffffff;
+  z-index: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center; 
+	opacity: 1;
+  transition: opacity 1s;   
+}
+
+#welcomeSplash.fade {
+  display: none;
+  opacity: 0;
+}
+
+@media only screen and (max-width: 780px) {
+  #welcomeSplash {
+    display: none; 
+  }
+}
+

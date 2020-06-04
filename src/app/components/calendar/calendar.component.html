@@ -1,0 +1,5 @@
+<div *ngFor="let user of users" class="form-group">
+  {{user.firstName}}
+  <input type="file" class="form-control" (change)="onFileSelected($event)">
+  <img src="{{user.image}}" alt="photo">
+</div>

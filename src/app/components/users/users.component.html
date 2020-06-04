@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-lg-12 mt-5">
+    <div class="card-deck" *ngIf="users; else Spinner">
+      <div routerLink="user/{{ user?.id }}" class="card bg-dark mb-5" *ngFor="let user of users">
+        <img class="card-img-top mx-auto mt-2" src="{{ user?.image }}" style="border-radius: 50%; object-fit: cover;"
+          onError="this.src='/assets/img/avatar.png';">
+        <div class="card-body text-center text-white">
+          <h4 class="card-title">{{ user?.firstName }} {{ user?.lastName }}</h4>
+          <hr>
+          <ul class="text-white">
+            <li><i class="text-info fas fa-map-marker-alt mr-2"></i>{{ user?.street }} {{ user?.city }}
+              {{ user?.zip }}
+            </li>
+            <li><i class="text-info fas fa-phone mr-2"></i> 0{{ user?.phone }}</li>
+            <li><i class="text-info fas fa-at mr-2"></i>{{ user?.email }}</li>
+          </ul>
+          <a routerLink="user/{{ user?.id }}" class="btn btn-outline-info btn-sm">Profil <i
+              class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #Spinner>
+  <div class="spinner">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</ng-template>

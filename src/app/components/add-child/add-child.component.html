@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mt-3">
+      <a routerLink="/profile/{{user?.id}}" class="btn btn-outline-light">
+        <i class="fa fa-arrow-circle-left"></i> Zurück
+      </a>
+    </div>
+    <div class="col-md-6 mt-3">
+      <div class="card">
+        <div class="card-header text-center" style="font-family: Gill Sans, sans-serif; font-size: large;">
+          KiddiesWeCare
+          <span class="text-info"> Fügen Sie ein Kind hinzu<i class="fas fa-child"></i></span>
+        </div>
+        <div class="card-body">
+          <form #childForm="ngForm" (ngSubmit)="onSubmit(childForm)">
+            <div class="form-group">
+              <label for="name">Kindername </label>
+              <input type="text" class="form-control" name="name" #name="ngModel"
+                [ngClass]="{'is-invalid':name.errors && name.touched}" [(ngModel)]="childUser.name" minlength='3'
+                required>
+              <div class="invalid-feedback" [hidden]='!name.errors?.required'>
+                Kindername erforderlich
+              </div>
+              <div class="invalid-feedback" [hidden]='!name.errors?.minlength'>
+                Das Feld muss mindestens 3 Zeichen lang sein
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="age">Alter des Kindes</label>
+              <input type="number" class="form-control" name="age" #age="ngModel"
+                [ngClass]="{'is-invalid':age.errors && age.touched}" [(ngModel)]="childUser.age" minlength='1'
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                type="number" maxlength="2" required>
+              <div class="invalid-feedback" [hidden]='!age.errors?.required'>
+                Alter des Kindes erforderlich
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="hobby">Hobby</label>
+              <input type="text" class="form-control" name="hobby" #hobby="ngModel"
+                [ngClass]="{'is-invalid':hobby.errors && hobby.touched}" [(ngModel)]="childUser.hobby" minlength='4'
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                type="text" maxlength="20" required>
+              <div class="invalid-feedback" [hidden]='!hobby.errors?.required'>
+                Hobby erforderlich
+              </div>
+              <div class="invalid-feedback" [hidden]='!hobby.errors?.minlength'>
+                Das Feld muss mindestens 4 Zeichen lang sein
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="gender">Kommentar</label>
+              <input type="text" class="form-control" name="comment" #comment="ngModel"
+                [ngClass]="{'is-invalid':comment.errors && comment.touched}" [(ngModel)]="childUser.comment"
+                minlength='4'
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                type="text" maxlength="50" required>
+              <div class="invalid-feedback" [hidden]='!comment.errors?.required'>
+                Bitte fügen Sie einen Kommentar hinzu
+              </div>
+              <div class="invalid-feedback" [hidden]='!comment.errors?.minlength'>
+                Das Feld muss mindestens 4 Zeichen lang sein
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="gender">Junge oder Mädchen?</label>
+              <select type="text" class="form-control" name="gender" #gender="ngModel"
+                [ngClass]="{'is-invalid':gender.errors && gender.touched}" [(ngModel)]="childUser.gender" required>
+                <option value="girl">Prinzessin</option>
+                <option value="boy">Prinz</option>
+              </select>
+              <div class="invalid-feedback" [hidden]='!gender.errors?.required'>
+                Bitte teilen Sie uns das Geschlecht mit
+              </div>
+            </div>
+            <h6 class="text-danger text-center">Bitte überprüfen Sie, ob die Informationen korrekt sind</h6>
+            <input type="submit" value="Submit" class="btn btn-block btn-info">
+          </form>
+        </div>
+      </div>
+    </div>

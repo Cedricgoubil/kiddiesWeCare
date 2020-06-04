@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <h1 class="text-center pb-4 pt-3">
+    KiddiesWeCare
+    <span class="text-white">Bild hochladen <i class="fas fa-camera-retro"></i></span>
+  </h1>
+  <h5 class="text-center text-white mt-3">Sie können Ihr Profilbild einfach hier hochladen und es wird am nächsten Tag
+    angezeigt
+  </h5>
+  <div class="row">
+    <input type="file" (change)="uploadFile($event)" alt="image" />
+    <progress max="100" [value]="(uploadProgress | async)"></progress>
+    <div class="result" *ngIf="downloadURL | async; let uploadSrc">
+      <a class="text-white ml-5 mr-5" [href]="uploadSrc"> Sie haben diese Datei gerade hochgeladen! </a>
+    </div>
+    <div *ngIf="downloadURL | async; let url">
+      <img [src]="url" alt="Image from AngularFireStorage" width="300" height="250">
+    </div>
+  </div>
+</div>

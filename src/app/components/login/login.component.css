@@ -1,0 +1,8 @@
+.form-group input {
+  height: 25px;
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+  border-bottom: 1px solid #17a2b8;
+}
